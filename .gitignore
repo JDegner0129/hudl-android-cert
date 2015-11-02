@@ -1,3 +1,23 @@
+# OS X
+.DS_Store
+
+# Android Studio
+# Need both .idea entries so we can include some files in <project root>/.idea/
+*/.idea
+/.idea/*
+.gradle
+/*/local.properties
+/*/out
+build/
+captures/
+/*/*/build
+/*/*/production
+*.iml
+*.iws
+*.ipr
+*~
+*.swp
+
 # Built application files
 *.apk
 *.ap_
