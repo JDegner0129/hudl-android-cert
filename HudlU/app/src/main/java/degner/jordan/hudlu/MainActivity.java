@@ -15,6 +15,17 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView.Adapter mAdapter;
+    private final String[] dataset = new String[] {
+            "Hey",
+            "Teach",
+            "Am",
+            "I",
+            "Gud",
+            "At",
+            "Android",
+            "Yet?"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new MyAdapter(this, dataset);
+        mRecyclerView.setAdapter(mAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
