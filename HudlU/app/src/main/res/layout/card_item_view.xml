@@ -5,6 +5,14 @@
     android:layout_gravity="center"
     android:layout_margin="12dp">
 
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/icon_hudllogo"
+        />
+
     <TextView
         android:id="@+id/item_text_view"
         android:layout_width="wrap_content"
