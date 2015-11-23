@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnAdapt
                     @Override
                     public void onResponse(String response) {
                         MashableNews news = new Gson().fromJson(response, MashableNews.class);
-                        Log.d("Fetch news result", news.newsItems.get(0).title);
+                        Log.d("FetchNews", news.newsItems.get(0).title);
 
                         dataset.addAll(news.newsItems);
                         mAdapter.notifyDataSetChanged();
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnAdapt
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(MainActivity.this, "Error fetching news", Toast.LENGTH_SHORT).show();
-                        Log.e("Fetch news error", error.getMessage());
+                        Log.e("FetchNews", error.getMessage());
                     }
                 });
 
