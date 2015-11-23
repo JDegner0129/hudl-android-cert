@@ -24,22 +24,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import degner.jordan.hudlu.models.MashableNews;
+import degner.jordan.hudlu.models.MashableNewsItem;
 
 public class MainActivity extends AppCompatActivity implements MyAdapter.OnAdapterInteractionListener {
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private RecyclerView.Adapter mAdapter;
-    private final String[] dataset = new String[] {
-            "Hey",
-            "Teach",
-            "Am",
-            "I",
-            "Gud",
-            "At",
-            "Android",
-            "Yet?"
-    };
+    private final List<MashableNewsItem> dataset = new ArrayList<MashableNewsItem>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnAdapt
 
     @Override
     public void onItemClicked(View view, int position) {
-        Snackbar.make(view, dataset[position], Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(view, dataset.get(position).author, Snackbar.LENGTH_SHORT).show();
     }
 
     private void fetchLatestNews() {
@@ -117,6 +112,9 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnAdapt
                     public void onResponse(String response) {
                         MashableNews news = new Gson().fromJson(response, MashableNews.class);
                         Log.d("Fetch news result", news.newsItems.get(0).title);
+
+                        dataset.addAll(news.newsItems);
+                        mAdapter.notifyDataSetChanged();
                     }
                 },
                 new Response.ErrorListener() {

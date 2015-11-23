@@ -7,11 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
+import degner.jordan.hudlu.models.MashableNewsItem;
+
 /**
  * Created by Jordan on 11/15/15.
  */
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private String[] mDataset;
+    private List<MashableNewsItem> mDataset;
     private OnAdapterInteractionListener mListener;
 
     public interface OnAdapterInteractionListener {
@@ -28,7 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 
-    public MyAdapter(Context context, String[] dataset) {
+    public MyAdapter(Context context, List<MashableNewsItem> dataset) {
         mListener = (OnAdapterInteractionListener) context;
         mDataset = dataset;
     }
@@ -44,7 +48,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        holder.mItemTextView.setText(mDataset[position]);
+        holder.mItemTextView.setText(mDataset.get(position).title);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +60,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
     }
 }
