@@ -106,8 +106,8 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnAdapt
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Log.d("HudlU", "Settings menu item clicked.");
+        if (id == R.id.action_favorites) {
+            Log.d("HudlU", "Favorites menu item clicked.");
             return true;
         }
 

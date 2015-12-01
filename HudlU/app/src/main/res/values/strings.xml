@@ -4,4 +4,5 @@
     <string name="dialog_welcome_message">Welcome to Homework 4!</string>
     <string name="dialog_welcome_title">Welcome</string>
     <string name="dialog_welcome_positive">OK</string>
+    <string name="action_favorites">Favorites</string>
 </resources>
