@@ -5,4 +5,7 @@
     <string name="dialog_welcome_title">Welcome</string>
     <string name="dialog_welcome_positive">OK</string>
     <string name="action_favorites">Favorites</string>
+    <string name="item_favorite">Favorite</string>
+    <string name="item_title">Title</string>
+    <string name="item_author">Author</string>
 </resources>
