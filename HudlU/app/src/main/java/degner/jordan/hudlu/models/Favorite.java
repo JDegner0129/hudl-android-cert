@@ -11,6 +11,19 @@ public class Favorite extends RealmObject {
     private String image;
     private String link;
 
+    public Favorite() {
+        super();
+    }
+
+    public Favorite(String title, String author, String image, String link) {
+        super();
+
+        this.title = title;
+        this.author = author;
+        this.image = image;
+        this.link = link;
+    }
+
     public String getTitle() {
         return title;
     }
