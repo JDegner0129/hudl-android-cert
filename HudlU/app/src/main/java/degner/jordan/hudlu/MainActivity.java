@@ -1,6 +1,9 @@
 package degner.jordan.hudlu;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -42,6 +45,31 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnAdapt
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final SharedPreferences preferences = getSharedPreferences("WelcomePrefs", Context.MODE_PRIVATE);
+        boolean hasBeenWelcomed = preferences.getBoolean("HasBeenWelcomed", false);
+
+        if (!hasBeenWelcomed) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setMessage(R.string.dialog_welcome_message)
+                    .setTitle(R.string.dialog_welcome_title)
+                    .setCancelable(true)
+                    .setPositiveButton(R.string.dialog_welcome_positive, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences.Editor editor = preferences.edit();
+
+                            editor.putBoolean("HasBeenWelcomed", true);
+                            editor.apply();
+
+                            dialog.cancel();
+                        }
+                    });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
 
         mRecyclerView = (RecyclerView) findViewById(R.id.main_recycler);
 
