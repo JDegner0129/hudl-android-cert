@@ -8,4 +8,5 @@
     <string name="item_favorite">Favorite</string>
     <string name="item_title">Title</string>
     <string name="item_author">Author</string>
+    <string name="favorites">Favorites</string>
 </resources>
