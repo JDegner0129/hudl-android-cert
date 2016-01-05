@@ -12,18 +12,8 @@
         android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/item_favorite"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:text="@string/item_favorite"
-            android:background="#FFF" />
-
         <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/favorite_item_image"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -32,20 +22,20 @@
             />
 
         <TextView
-            android:id="@+id/item_title"
+            android:id="@+id/favorite_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/item_image"
+            android:layout_below="@id/favorite_item_image"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:text="@string/item_title" />
 
         <TextView
-            android:id="@+id/item_author"
+            android:id="@+id/favorite_item_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/item_title"
+            android:layout_below="@id/favorite_item_title"
             android:layout_marginLeft="10dp"
             android:text="@string/item_author" />
 
